@@ -1,0 +1,76 @@
+<%- include("../partials/admin/header") %>
+
+<div class="col main pt-5 mt-3 bg-light">
+    <div class="title">
+        <h4 class="display-5 d-sm-block"> 
+            ADD USER ACCOUNT <i class="fa fa-user-o"></i>
+            <% var message %>
+            <span class="text-success"><%= message %></span>
+        </h4>
+    </div>
+
+    <!-- add user form -->
+    <div class="container user-form pt-3 mt-5 mb-5">
+
+        
+        <form class="addUser" action="/admin/add-user" method="POST" enctype="multipart/form-data">
+          <input type="hidden" name="status" value="dormant">
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <label for="account_number">Account Number</label>
+              <input type="number" name="account_number" class="form-control" id="account_number" placeholder="Account Number"
+              maxlength="10" required>
+            </div>
+            <div class="form-group col-md-4">
+              <label for="account_name">Account Name</label>
+              <input type="text" class="form-control" name="account_name" id="account_name" placeholder="Account Name" required>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="account_balance">Account Balance <i class="fa fa-usd"></i></label>
+                <input type="number" name="account_balance" class="form-control" id="account_balance" required placeholder="eg 2000000 no space or comma">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="username">Account Username</label>
+                <input type="text" name="username" class="form-control" id="username" required placeholder="Username">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="password">Account Password</label>
+              <input type="password" name="password" class="form-control" id="password" required placeholder="User Password">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="telephone">Telephone</label>
+                  <input type="text" class="form-control" name="telephone" id="telephone" required placeholder="User Telephone">
+            </div>
+          </div>
+          <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="routing_number">Routing Number</label>
+                    <input type="text" name="routing_number" class="form-control" required id="routing_number">
+                </div>
+                  <div class="form-group col-md-4">
+                  <label for="account_type">Account Type</label>
+                    <select id="account_type" name="account_type" class="form-control" required>
+                        <option>Choose...</option>
+                        <option value="Checkings Account">Checkings Account</option>
+                        <option value="Savings Account">Savings Account</option> 
+                    </select>  
+                </div>
+              <div class="form-group col-md-4">
+                  <label for="photo">Add Photo</label>
+                  <input type="file" accept="image/*" name="userfile" class="form-control" required id="photo">
+              </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Create user</button>
+        </form>
+    </div>
+
+</div>
+<!--/main col-->
+</div>
+
+</div>
+<!--/.container-->
+
+<%- include("../partials/admin/footer") %>

@@ -1,0 +1,47 @@
+<%- include("../partials/header") %>
+<div class='page-heading style-2'>
+    <span><% var message%>
+    <div class='container'>
+                <h1>Application Form</h1>     <%= message %></span>                                        </div>
+</div>
+
+<section class="container" id="site-content">
+<div class="normal">
+
+
+                    <div class="vc_row wpb_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner "><div class="wpb_wrapper"><div role="form" class="wpcf7" id="wpcf7-f2609-p2611-o1" lang="en-US" dir="ltr">
+<div class="screen-reader-response"></div>
+<form action="/apply" method="post">
+<div style="display: none;">
+
+</div>
+<p><label> Title  (Mr/Mrs/Miss)<br />
+<span><input required type="text" name="name" value="" size="40"   /></span> </label></p>
+<p><label> First Name (required)<br />
+<span class="wpcf7-form-control-wrap your-firstname"><input required type="text" name="firstname" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" /></span> </label></p>
+<p><label> Last Name (required)<br />
+<span class="wpcf7-form-control-wrap your-lastname"><input required type="text" name="lastname" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" /></span> </label></p>
+<p><label> Other Name<br />
+<span class="wpcf7-form-control-wrap your-othername"><input required type="text" name="othername" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false" /></span> </label></p>
+<p><label> Your Email (required)<br />
+<span class="wpcf7-form-control-wrap your-email"><input  required type="email" name="your-email" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false" /></span> </label></p>
+<p><label> Your Mobile Number (required)<br />
+<span class="wpcf7-form-control-wrap tel-381"><input required type="tel" name="tel" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-tel wpcf7-validates-as-required wpcf7-validates-as-tel" aria-required="true" aria-invalid="false" /></span> </label></p>
+<p><label> Sex (required)<br />
+<span class="wpcf7-form-control-wrap sex"><input required type="text" name="sex" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" /></span> </label></p>
+<p><label> Occupation (required)<br />
+<span class="wpcf7-form-control-wrap your-occupation"><input required type="text" name="occupation" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" /></span> </label></p>
+<p><label> Your Nationality (required)<br />
+<span class="wpcf7-form-control-wrap your-nationality"><input required type="text" name="nationality" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" /></span> </label></p>
+<p><label> Your Residential Address (required)<br />
+<span class="wpcf7-form-control-wrap your-address"><input required type="text" name="address" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" /></span> </label></p>
+<p><label> SSN (required)<br />
+<span class="wpcf7-form-control-wrap number-83"><input required type="number" name="ssn" value="" class="wpcf7-form-control wpcf7-number wpcf7-validates-as-number" aria-invalid="false" /></span> </label></p>
+<p>I understand that the information given herein is for my application and I, therefore, warrant such information is correct.</p>
+<p><input type="submit" value="Apply Now" class="wpcf7-form-control wpcf7-submit" /></p>
+<div class="wpcf7-response-output wpcf7-display-none"></div></form></div></div></div></div></div>
+
+    </div>
+</section>
+
+<%- include("../partials/footer") %>

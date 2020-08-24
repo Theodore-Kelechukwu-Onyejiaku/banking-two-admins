@@ -1,0 +1,271 @@
+body{
+	height: 100vh;
+	margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    background-color: #00a3c2!important;
+}
+.ctb-bg{
+	background: #00a3c2;
+	background: linear-gradient(-135deg, #00a3c2
+    , #00a3c2);
+	padding: 20px;
+
+}
+h1,h2,h3,h4,h5,h6,p{
+    font-family: 'Poppins', sans-serif;
+}
+
+
+/*
+| -------------------------------------------------------------------------
+| LANDING PAGE STYLING
+| -------------------------------------------------------------------------
+| This include login and the page its self
+|*/
+.error{
+	font-family: 'Poppins', sans-serif;
+	color: #ef0808;
+	padding-left: 20px;
+	font-style: italic;
+	font-size: 14px;
+}
+.msg{
+	font-family: 'Poppins', sans-serif;
+	font-weight: 600;
+	font-size: 14px;
+	text-align: center;
+}
+.secured-tag{
+	padding: 30px;
+}
+.login-wrapper{
+	width: 70%;
+	margin: 0 auto;
+    background: #fff;
+    border-radius: 10px;
+    /*justify-content: center*/
+    /*justify-content: space-between;*/
+    padding: 120px 95px 30px 95px;
+}
+.top-right {
+	justify-content: center;
+}
+.top-right h3{
+	color: #00a3c2;
+	font-weight: 600;
+	font-family: 'Poppins', sans-serif;
+}
+.form-wrapper{
+	margin-top: 20px;
+	padding: 0px 25px 0px 25px;
+	position: relative;
+}
+.form-group{
+	margin-bottom: 0em!important;
+}
+input.form-input{
+	font-family: 'Poppins', sans-serif;
+	font-weight: bold;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #666666;
+    display: block;
+    width: 100%;
+    background: #e6e6e6;
+    height: 50px;
+    border-radius: 25px;
+    padding: 0 30px 0 68px;
+}
+span.form-input-icon{
+    font-size: 15px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    position: relative;
+    border-radius: 25px;
+    bottom: 0;
+    top: 35px;
+    width: 100%;
+    height: 100%;
+    padding-left: 40px;
+    pointer-events: none;
+    color: #666666;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+}
+.form-btn{
+	margin-top: 25px
+}
+button.login-btn{
+	font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #fff;
+    text-transform: uppercase;
+    width: 100%;
+    height: 50px;
+    border-radius: 25px;
+    background: #196c7a;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 25px;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s
+}
+.bottom-desc{
+	margin-top: 30px;
+	color: #666666;
+	padding: 30px;
+}
+.bottom-desc .title{
+	padding-left: 15px;
+}
+@media (max-width: 768px) { 
+
+	.login-wrapper{
+		width: 100%;
+   		 padding: 30px 10px 30px 10px;
+
+	} 
+	.right-wrapper{
+		display: none;
+	}
+} 
+
+
+/*
+| -------------------------------------------------------------------------
+| ADMIN AND CUSTOMER PAGE STYLING
+| -------------------------------------------------------------------------
+| This include login and the page its self
+|*/
+.topbar .nav-item{
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    padding-left: 15px;
+}
+.sidebar a.nav-link{
+    color: #f0f0f0;
+    border-bottom: 2px solid #f0f0f0;
+}
+.sidebar a.nav-link:hover{
+    background-color: #f0f0f0;
+    color: #023b7e;
+}
+div#main {
+    margin-top: 30px;
+}
+#main .main{
+    height: 100%;
+}
+.main .title{
+    border-bottom: 2px solid #023b7e;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+.title h4{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+.title h4 span{
+    color: #023b7e;
+}
+.theme-color{background-color: #023b7e}
+.box-theme-2{background-color: #59c5d6}
+.box-theme-3{background-color: #bcbcbc}
+
+.user-form{
+    padding-bottom: 50px;
+}
+.user-form form {
+    font-size: 14px;
+}
+.main .desc{
+    border-bottom: 1px dashed #023b7e;
+    padding: 20px;
+}
+.main .transfer-details{
+    padding: 20px;
+}
+.transfer-details .main-box{
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 15px
+}
+.main-box a{
+    color: #ffffff;
+}
+.main-box a:hover{
+    text-decoration: none;
+    color: #ffffff;
+}
+fieldset.scheduler-border, .summary{
+    border: 1px groove #ddd !important;
+    padding: 0 1.4em 1.4em 1.4em !important;
+    margin: 0 0 1.5em 0 !important;
+    -webkit-box-shadow: 0px 0px 0px 0px #000;
+    box-shadow: 0px 0px 0px 0px #000;
+}
+.main .form-group{
+    margin-bottom: 10px !important;
+}
+.main .form-group label{
+    text-align: right;
+    padding-top: 5px;
+    font-size: 14px;
+}
+.main .otp, .pass-change{
+    width: 60%;
+    margin: 10px auto;
+    padding-bottom: 50px;
+}
+.modal-text{
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+}
+.account-summary{
+    padding-bottom: 30px;
+}
+.sum-details{
+    border-left: 1px solid #000;
+}
+.userTable button.btn{
+    font-size: 14px;
+    padding: 2px 5px;
+}
+.userTable thead th{font-size: 14px}
+.userTable tbody td{font-size: 13px}
+@media (max-width: 768px) { 
+
+   .main .form-group label{
+        text-align: center;
+        padding-top: 5px;
+        font-size: 14px;
+    }
+    .main .title{
+        margin-top: 12px;
+        margin-bottom: 10px;
+        border-top: 1px solid #dddddd;
+        padding-top: 15px
+    }
+    .main .otp, .pass-change{
+        width: 100%;
+    }
+    .sum-details {
+        border-left: none;
+    }
+}

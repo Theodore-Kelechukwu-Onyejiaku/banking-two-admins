@@ -1,0 +1,180 @@
+<%- include("../partials/user/header") %>
+
+    <!--/col-->
+
+    <div class="col main pt-5 mt-3 bg-light">
+        <div class="title" style="border-bottom: none;">
+            <h4 style="float: left;">
+                DASHBOARD
+<!--				            		&nbsp; <span>WELCOME..:::-->
+                &nbsp; <!--                                    </span> ..:::-->
+<!--				            		TO Citizens Trust Bank-->
+            </h4>
+            <h4 style="float: right;">
+
+                Status:
+                <% if(data.status === "blocked"){ %>
+                    <input type="button" class="btn btn-danger" value="BLOCKED" disabled>
+                <% }else if(data.status === "dormant"){ %>
+                    <input type="button" class="btn btn-warning" value="DORMANT" disabled>
+                <% }else{ %>
+                    <input type="button" class="btn btn-success" value="ACTIVE" disabled>
+                <% } %>
+            </h4>
+        </div>
+        <hr>
+        <p class="lead d-sm-block">Welcome to Citizens Trust Bank Personal Banking Platform for convenient Online Banking anytime anywhere.</p>
+
+        <!-- dashboard boxes starts -->
+<!--				            <div class="row mb-3">-->
+<!--				                <div class="col-xl-3 col-sm-6 py-2">-->
+<!--				                    <div class="card theme-color text-white h-100">-->
+<!--				                        <div class="card-body theme-color">-->
+<!--				                            <div class="rotate">-->
+<!--				                                <i class="fa fa-user fa-4x"></i>-->
+<!--				                            </div>-->
+<!--				                            <h6 class="text-uppercase font-italic">Account Name</h6>-->
+<!--				                            <h2 class="display-6">--><!--</h2>-->
+<!--				                        </div>-->
+<!--				                    </div>-->
+<!--				                </div>-->
+<!--				                <div class="col-xl-3 col-sm-6 py-2">-->
+<!--				                    <div class="card text-white theme-color h-100">-->
+<!--				                        <div class="card-body theme-color">-->
+<!--				                            <div class="rotate">-->
+<!--				                                <i class="fa fa-list fa-4x"></i>-->
+<!--				                            </div>-->
+<!--				                            <h6 class="text-uppercase font-italic">Account Number</h6>-->
+<!--				                            <h2 class="display-6">--><!--</h2>-->
+<!--				                        </div>-->
+<!--				                    </div>-->
+<!--				                </div>-->
+<!--				                <div class="col-xl-3 col-sm-6 py-2">-->
+<!--				                    <div class="card text-white box-theme-2 h-100">-->
+<!--				                        <div class="card-body box-theme-2">-->
+<!--				                            <div class="rotate">-->
+<!--				                                <i class="fa fa-list fa-4x"></i>-->
+<!--				                            </div>-->
+<!--				                            <h6 class="text-uppercase">Account Balance</h6>-->
+<!--				                            <h2 class="display-6">$--><!--.00</h2>-->
+<!--				                        </div>-->
+<!--				                    </div>-->
+<!--				                </div>-->
+<!--				                <div class="col-xl-3 col-sm-6 py-2">-->
+<!--				                    <div class="card text-white box-theme-2 h-100">-->
+<!--				                        <div class="card-body box-theme-2">-->
+<!--				                            <div class="rotate">-->
+<!--				                                <i class="fa fa-share fa-4x"></i>-->
+<!--				                            </div>-->
+<!--				                            <h6 class="text-uppercase">Routing Number</h6>-->
+<!--				                            <h2 class="display-6">--><!--</h2>-->
+<!--				                        </div>-->
+<!--				                    </div>-->
+<!--				                </div>-->
+<!--				                <div class="col-xl-3 col-sm-6 py-2">-->
+<!--				                    <div class="card text-white box-theme-3 h-100">-->
+<!--				                        <div class="card-body box-theme-3">-->
+<!--				                            <div class="rotate">-->
+<!--				                                <i class="fa fa-share fa-4x"></i>-->
+<!--				                            </div>-->
+<!--				                            <h6 class="text-uppercase">Account User ID</h6>-->
+<!--				                            <h2 class="display-6">--><!--</h2>-->
+<!--				                        </div>-->
+<!--				                    </div>-->
+<!--				                </div>-->
+<!--				                <div class="col-xl-3 col-sm-6 py-2">-->
+<!--				                    <div class="card text-white box-theme-3 h-100">-->
+<!--				                        <div class="card-body box-theme-3">-->
+<!--				                            <div class="rotate">-->
+<!--				                                <i class="fa fa-share fa-4x"></i>-->
+<!--				                            </div>-->
+<!--				                            <h6 class="text-uppercase">Account Type</h6>-->
+<!--				                            <h2 class="display-6">--><!--</h2>-->
+<!--				                        </div>-->
+<!--				                    </div>-->
+<!--				                </div>-->
+<!--				            </div>-->
+     
+        <!--/row-->
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card hovercard" id="card">
+                    <div class="cardheader">
+
+                    </div>
+                    <div class="avatar">
+                        <img alt="" src="<%= data.userfile %>">
+                    </div>
+                    <div class="info">
+                        <div class="title">
+                            <p style="color: #00A2C1"><%= data.username %></p>
+                        </div>
+                        <!--                                            <div class="desc">Account status: </div>-->
+                        <div class="desc text-info  ">
+                            <small class="display-5">Account Balance</small>
+                            <h3><i class="fa fa-usd"></i><%= data.account_balance %></h3>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <div class="card p-3  mt-2">
+                    <div class="cardheader">
+                        <h4>Recent Transactions</h4>
+                        <div class="table-responsive pt-3 pb-5">
+                            <table class="table table-bordered table-hover table-stripped">
+                                <thead>
+                                <tr>
+                                    <th>S/N</th>
+                                    <th>Date</th>
+                                    <th>Description</th>
+                                    <th>Ref</th>
+                                    <th>Withdrawals</th>
+                                    <th>Deposit</th>
+                                    <th>Balance</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    <% var row = 0 %>
+                    
+                                        <% row++ %>
+                                        <% if(account !== null){ %>
+                                            <tr class="tableRow-" + row>
+                                                <td><%= row %></td>
+                                                <td><%=account.dateTwo%> </td>
+                                                <td><%=account.description%> </td>
+                                                <td><%= account.ref%></td>
+                                                <td><%= account.withdrawals%></td>
+                                                <td><%=account.deposit%> </td>
+                                                <td><%= account.account_balance %></td>
+                                            </tr>
+                                        <% } else{ %>
+
+                                        <% } %>
+                                                                                            
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <td colspan="7" class="text-right">
+                                        <a href="/customer/account-history" class="btn btn-primary">More</a>
+                                    </td>
+                                </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+<!--/main col-->
+</div>
+
+</div>
+<!--/.container-->
+
+<%- include("../partials/user/footer") %>

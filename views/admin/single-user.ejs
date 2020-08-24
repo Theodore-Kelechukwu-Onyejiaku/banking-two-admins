@@ -1,0 +1,113 @@
+<%- include("../partials/admin/header") %>
+<div class="col main pt-5 mt-3 bg-light">
+    <div class="title">
+        <h4 class="display-5 d-sm-block"> 
+            EDIT USER ACCOUNT
+            <% var message %>
+            <span class="text-success"><%= message %></span>
+        </h4>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card hovercard" id="card">
+                <div class="cardheader">
+
+                </div>
+                <div class="avatar">
+                    <img alt="" src="<%= data.userfile%>">
+                </div>
+                <div class="info">
+                    <div class="title">
+                        <p style="color: #00A2C1"><%= data.account_name %></p>
+                    </div>
+<!--                                            <div class="desc">Account status: </div>-->
+                    <div class="desc text-info  ">
+                        <small class="display-5">Account Balance</small>
+                        <h3><i class="fa fa-usd"></i><%= data.account_balance %></h3>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <!-- add user form -->
+            <div class="user-form">
+
+                
+                <form class="addUser" action="/admin/user/update" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="_id" value="<%= data._id %>">
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="account_number">Account Number</label>
+                            <input type="number" name="account_number" class="form-control" id="account_number" placeholder="Account Number"
+                                   maxlength="10" value="<%= data.account_number %>">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="account_name">Account Name</label>
+                            <input type="text" class="form-control" name="account_name" id="account_name" placeholder="Account Name" value="<%= data.account_name%>">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="account_balance">Account Balance <i class="fa fa-usd"></i></label>
+                            <input type="text" name="account_balance" class="form-control" id="account_balance" value="<%= data.account_balance%>">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="username">Account Username</label>
+                            <input type="text" name="username" class="form-control" id="username" value="<%= data.username %>" placeholder="Username">
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="telephone">Telephone</label>
+                            <input type="text" class="form-control" name="telephone" id="telephone" value="<%= data.telephone%>" placeholder="User Telephone">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="routing_number">Routing Number</label>
+                            <input type="text" name="routing_number" class="form-control" value="<%= data.routing_number%>"	" id="routing_number">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="password">User Password</label>
+                            <input type="text" name="password" class="form-control" value="<%= data.password%>"	 id="routing_number">
+                        </div>
+                        <div class="form-group col-md-4">
+
+                            <label for="account_type">Account Type</label>
+                            <select id="account_type" name="account_type" class="form-control" required>
+                                <option  selected><%= data.account_type %></option>
+                                <option value="Checkings Account">Checkings Account</option>
+                                <option value="Savings Account">Savings Account</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="routing_number">Change Image</label>
+                            <input type="file" name="userfile" class="form-control" accept="image/*">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="status">Status</label>
+                            <select id="status" name="status" class="form-control" required>
+                                <option value="" selected><%= data.status %></option>
+                                <option value="active">active</option>
+                                <option value="dormant">dormant</option>
+                                <option value="blocked">blocked</option>
+                            </select>
+                        </div>
+                        <input type="hidden" name="old_image" value="<%= data.userfile%>">
+                        <input type="hidden" name="account_id" value="165">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Update user</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+<!--/main col-->
+</div>
+
+</div>
+<!--/.container-->
+<%- include("../partials/admin/footer") %>

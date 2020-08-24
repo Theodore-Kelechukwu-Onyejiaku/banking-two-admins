@@ -1,0 +1,92 @@
+
+<%- include("../partials/user/header") %>
+<!--/col-->
+
+<div class="col main pt-5 mt-3 bg-light">
+    <div class="title">
+        <h4 class="display-5 d-sm-block">
+            MY PROFILE
+        </h4>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card hovercard" id="card">
+                <div class="cardheader">
+
+                </div>
+                <div class="avatar">
+                    <img alt="" src="<%= data.userfile %>">
+                </div>
+                <div class="info">
+                    <div class="title">
+                        <p style="color: #00A2C1"><%= data.username %></p>
+                    </div>
+                    <!--                                            <div class="desc">Account status: </div>-->
+                    <div class="desc text-info  ">
+                        <small class="display-5">Account Balance</small>
+                        <h3><i class="fa fa-usd"></i><%= data.account_balance %></h3>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <!-- add user form -->
+            <div class="user-form">
+
+                
+                <form class="addUser">
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="account_number">Account Number</label>
+                            <input type="number" name="account_number" class="form-control" readonly id="account_number" placeholder="Account Number"
+                                   maxlength="10" value="<%= data.account_number %>">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="account_name">Account Name</label>
+                            <input type="text" class="form-control" name="account_name" readonly id="account_name" placeholder="Account Name" value="<%= data.account_name %>">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="account_balance">Account Balance <i class="fa fa-usd"></i></label>
+                            <input type="text" name="account_balance" readonly class="form-control" id="account_balance" value="<%= data.account_balance %>">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="username">Account Username</label>
+                            <input type="text" name="username" readonly class="form-control" id="username" value="testing" placeholder="<%= data.account_username %>">
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="telephone">Telephone</label>
+                            <input type="text" class="form-control" readonly name="telephone" id="telephone" value="<%= data.telephone %>" placeholder="User Telephone">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="routing_number">Routing Number</label>
+                            <input type="text" name="routing_number" readonly class="form-control" value="<%= data.routing_number %>" id="routing_number">
+                        </div>
+                        <div class="form-group col-md-4">
+
+                            <label for="account_type">Account Type</label>
+                            <input type="text" readonly name="account_type" class="form-control" value="<%= data.account_type %>" id="account_type">
+                        </div>
+                    </div>
+<!--                                        <button type="submit" class="btn btn-primary">Update user</button>-->
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+<!--/main col-->
+</div>
+
+</div>
+<!--/.container-->
+
+
+<%- include("../partials/user/footer") %>

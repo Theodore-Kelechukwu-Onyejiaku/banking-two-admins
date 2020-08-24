@@ -1,0 +1,72 @@
+<%- include("../partials/admin/header") %>
+ 
+<div class="col main pt-5 mt-3 bg-light">
+    <div class="title">
+        <h4 class="display-5 d-sm-block"> 
+            ALL USER ACCOUNT
+            <% var message %>
+            <span class="text-success"><%= message %></span>
+        </h4>
+    </div>
+
+    <!-- add user form -->
+    <div class="container users">
+
+        <div class="table-responsive pt-3 pb-5">
+            <table class="userTable table table-bordered table-stripped">
+                <thead>
+                    <tr>
+                        <th>S/N</th>
+                        <th>ACCOUNT NAME</th>
+                        <th>ACCOUNT NUMBER</th>
+                        <th>ACCOUNT TYPE</th>
+                        <th>ROUTING NUMBER</th>
+                        <th>ACCOUNT BALANCE</th>
+                        <th>DATE CREATED</th>
+                        <th>ACTION</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% var row = 0 %>
+                    <% if(data.length > 0){ %>
+                        <% data.forEach(data =>{ %>
+                            <% row++ %>
+                            <tr class="tableRow-" + row>
+                                <td><%= row %></td>
+                                <td><%= data.account_name %></td>
+                                <td><%= data.account_number %></td>
+                                <td><%= data.account_type %></td>
+                                <td><%= data.routing_number %></td>
+                                <td><i class="fa fa-usd"></i><%= data.account_balance %></td>
+                                <td><%= data.date %></td>
+                                <td>
+                                    <a href="/admin/user/delete/<%= data._id %>/" >
+                                        <button onclick="return confirm('are you sure you want to delete this record');"  class="btn btn-danger fa fa-trash" data-id="129" data-toggle="tooltip" title="Delete"></button>
+                                    </a>
+                                    <a href="/admin/user/<%= data._id %>" data-toggle="tooltip" title="View Account">
+                                        <button class="btn btn-info" >
+                                            <i class="fa fa-eye"></i>
+                                        </button>
+                                    </a>
+                                </td>
+                            </tr>
+                        <% }) %>
+                    <% }else{ %>
+                        
+                    <% } %>
+                    
+
+                        
+                    </tbody>
+            </table>
+        </div>
+    
+    </div>
+
+</div>
+<!--/main col-->
+</div>
+
+</div>
+
+<%- include("../partials/admin/footer") %>

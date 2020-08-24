@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>International Bank Transfer | Firstbtx - Citizens Trust Bank of Texa</title>
+	
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/custom.css">
+
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css">
+
+    <link rel="shortcut icon" href="/wp-content/uploads/2019/03/Favicon.png" type="image/x-icon" />
+
+    		<link rel="stylesheet" type="text/css" href="/assets/dashboard/dashboard.css"> 		
+</head>
+<style>
+#myProgress {
+  width: 100%;
+  background-color: #ddd;
+  border-radius: 4px;
+}
+
+#myBar {
+  width: 0%;
+  height: 30px;
+  background-color: #007bff;
+  border-radius: 4px;
+  text-align: center;
+  line-height: 30px;
+  color: white;
+}
+
+#myProgress2 {
+  width: 100%;
+  background-color: #ddd;
+  border-radius: 4px;
+}
+
+#myBar2 {
+  width: 40%;
+  height: 30px;
+  background-color: #007bff;
+  border-radius: 4px;
+  text-align: center;
+  line-height: 30px;
+  color: white;
+}
+</style>
+ <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+        <script type='text/javascript'>
+        
+         $(document).ready(function() {
+            //option A
+            $("form").submit(function(e){
+                e.preventDefault(e);
+                $('#transfer').modal('toggle');
+                
+                var i = 0;
+                
+                function wait(ms){
+                    var start = new Date().getTime();
+                    var end = start;
+                    while(end < start + ms) {
+                        end = new Date().getTime();
+                    }
+                }
+                
+                
+                if (1 == 0) {
+                    alert('OTP can not be less than 7 digits');
+                } else {
+                    $('#myProgress').show();
+                    
+                    //wait(2000);
+                    
+                     if (i == 0) {
+                        i = 1;
+                        var elem = document.getElementById("myBar");
+                        var width = 0;
+                        var id = setInterval(frame, 100);
+                        
+                        //wait(2000);
+                        
+                        function frame() {
+                            if (width >= 100) {
+                                clearInterval(id);
+                                i = 0;
+                            } else if (width == 40) {
+                                
+                                wait(2000);
+                                $(".modal:visible").modal('toggle');
+                                
+                                wait(2000);
+                                $('#otp').modal('toggle');
+                                
+                                
+                                clearInterval(id);
+                                
+                            } else {
+                            width++;
+                            elem.style.width = width + "%";
+                            elem.innerHTML = width  + "%";
+                          }
+                        }
+                    }    
+                }
+            
+        
+                
+                
+            });
+            
+            
+        });
+        </script>
+<body>
+	<div class="ctb-bg">
+		<div id="body">
+
+		    <div id="wrapper">
+
+		        <!-- Navigation -->
+                <nav class="navbar fixed-top navbar-expand-md navbar-dark bg-light mb-3">
+    <div class="flex-row d-flex">
+        <button type="button" class="navbar-toggler mr-2 bg-primary" data-toggle="offcanvas" title="Toggle responsive left sidebar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="/customer" title="Citizens Trust Bank">
+            <img class="img-fluid" src="/assets/img/ctb-logo.jpg" style="height: 60px;">
+        </a>
+    </div>
+    <button class="navbar-toggler bg-primary" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse" id="collapsingNavbar">
+        <ul class="navbar-nav ml-auto topbar">
+            <li class="nav-item active">
+                <i class="fa fa-map-marker"></i>
+            </li>
+            <li class="nav-item">
+                <i class="fa fa-envelope"></i> customercare@ctbconect.com
+            </li>
+            <li class="nav-item">
+                <i class="fa fa-phone"></i> 916 258 5040
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#myAlert" data-toggle="collapse"></a>
+            </li>
+
+        </ul>
+    </div>
+</nav>
+				<div class="container-fluid" id="main">
+    				<div class="row row-offcanvas row-offcanvas-left">
+
+                        <div class="col-md-3 col-lg-2 sidebar-offcanvas  pl-0" id="sidebar" role="navigation">
+                            <ul class="nav flex-column sticky-top pl-0 pt-5 mt-3 sidebar">
+                                <li class="text-center text-uppercase text-light pt-3">
+                                    <h3><%= data.username %></h3>
+                                </li>
+                                <li class="nav-item"><a class="nav-link" href="/customer"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+                                <li class="nav-item"><a class="nav-link" href="/customer/account-history"><i class="fa fa-book"></i> Account History</a></li>
+                                <!--<li class="nav-item"><a class="nav-link" href=""><i class="fa fa-file-o"></i> Account Summary</a></li>-->
+                                <li class="nav-item"><a class="nav-link" href="/customer/transfer"><i class="fa fa-send"></i> Transfer</a></li>
+                                <li class="nav-item"><a class="nav-link" href="/customer/change-password"><i class="fa fa-key"></i> Change Password</a></li>
+                                <li class="nav-item"><a class="nav-link" href="/customer/my-profile"><i class="fa fa-user"></i> Profile</a></li>
+                                <li class="nav-item"><a class="nav-link" href="/logout"><i class="fa fa-sign-out"></i> Logout</a></li>
+                            </ul>
+</div>				      
+<!--/col-->
+
+<div class="col main pt-5 mt-3 bg-light">
+    <div class="title">
+        <h4 class="display-5 d-sm-block"> 
+            Citizens Trust Bank | PERSONAL BANKING, SMALL BUSINESS BANKING, MORTGAGES AND LOANS, INVESTMENTSONS
+        </h4>
+    </div>
+
+    <!-- dashboard boxes starts -->
+      <div class="container transfer-details">
+          <div class="card">
+          <h5 class="card-header text-light text-uppercase" style="background-color:#023b7e;">Intertional Bank Transfer</h5>
+          <div class="card-body">
+            <!--<form  class="trasaction-form" action="/" method="get" >-->
+            <form method="post" action="/international-transfer">
+                <fieldset class="scheduler-border">
+                        
+                <fieldset class="scheduler-border">
+                     <legend class="scheduler-border">Transactions:</legend>
+        
+                    <div class="form-group row">
+            
+                        <label class="col-sm-4 control-label" for="Old">TRANSACTION ID* </label>
+                        <% var id = Math.floor(Math.random() * 80001) %>
+                        <div class="col-sm-8">
+                        <input type="text" class="form-control" value="<%= id %>" id="id" name="id" readonly=>
+                        </div>
+                    </div>
+            
+                    <div class="form-group row">
+                    
+                            <label class="col-sm-4 control-label" for="Old">Account Name* </label>
+                            <div class="col-sm-8">
+                                
+                            <input type="text" class="form-control" value="<%= data.account_name%>" id="sname" name="sname" readonly="">
+                            </div>
+                    </div>
+            
+                    <div class="form-group row">
+                        <label class="col-sm-4 control-label" for="Old">Account Number / IBAN* </label>
+                        <div class="col-sm-8">
+                            
+                        <input type="text" class="form-control" value="<%= data.account_number%>" id="sname" name="sname" readonly="">
+                        </div>
+                    </div>
+            
+                    <div class="form-group row">
+                    
+                        <label class="col-sm-4 control-label" for="Old">Account Balance* <i class="fa fa-usd"></i></label>
+                        <div class="col-sm-8">
+                            
+                        <input type="text" class="form-control" value="<%= data.account_balance%>" id="sname" name="sname" readonly="">
+                        </div>
+                    </div>
+                                
+                </fieldset>
+    
+                <fieldset class="scheduler-border">
+                     <legend class="scheduler-border">Beneficiary Information:</legend>
+ 
+                     <div class="form-group row">
+                            <label class="col-sm-4 control-label" for="Old">Country* </label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="country" name="country" required>
+                            </div>
+                    </div>
+                    
+                    <div class="form-group row">
+                            <label class="col-sm-4 control-label" for="Old">Bank Name* </label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="bankname" name="bankname" required="">
+                            </div>
+                    </div>
+                    
+                    <div class="form-group row">
+                        <label class="col-sm-4 control-label" for="Old">Bank Address* </label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="bankaddress" name="bankaddress" required="">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row">
+                        <label class="col-sm-4 control-label" for="Old">Account No / IBAN* </label>
+                        <div class="col-sm-8">
+                            <input type="number" class="form-control" id="beaccountno" name="beaccountno" maxlength="10" required="">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row">
+                        <label class="col-sm-4 control-label" for="Old"> Account Name* </label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="beaccountname" name="beaccountname">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row">
+                        <label class="col-sm-4 control-label" for="Old"> SWIFT / BIC Code * </label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="beswift" name="beswift" required="">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row">
+                        <label class="col-sm-4 control-label" for="Old"> Routing No. (Optional) </label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="berouting" name="berouting">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row">
+                        <label class="col-sm-4 control-label" for="Old"> Beneficiary Address </label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="beaddress" name="beaddress" required="">
+                        </div>
+                    </div>
+                            
+                            
+                    <div class="form-group row">
+                        <label class="col-sm-4 control-label" for="Old">Transfer Amount <i class="fa fa-usd"></i>* </label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="amount" name="amount" required="">
+                        </div>
+                    </div>
+                </fieldset>
+    
+                 <fieldset class="scheduler-border">
+                  <br>
+                  
+                  <p> I <font color="blue"><b> TESTING </b></font>hereby declare that all information duly filled on this International Remittance Form is genuine to the best of my knowledge and Northern Savings Bank | Personal Banking, Small Business Banking, Mortgages and Loans, Investments will not be responsible for any mistake(s) caused by me.  </p>
+                  </fieldset>
+
+                <div class="form-group">
+                    <div class="col-sm-8 col-sm-offset-2">
+                                                
+                        <button type="submit" class="btn btn-primary">Transfer Funds</button>
+                    </div>
+                </div>
+             </fieldset>
+            </form>
+          </div>
+        </div>
+      </div>
+ 
+    <!--/row-->
+    
+    
+    
+    <!-- modal dialog -->
+      <div class="modal fade" id="transfer" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <!--<h5 class="modal-title" id="exampleModalLongTitle"><i class="fa fa-exclamation-triangle text-success"></i> Initiating Transfer!</h5>-->
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body text-center modal-text">
+             <p>Transferring</p>
+            <div id="myProgress" style="margin-top: 3%; display:none;">
+                <div id="myBar">0%</div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            
+        </div>
+      </div>
+    </div>
+    </div>
+    
+    <!-- modal dialog -->
+      <div class="modal fade" id="continue" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <!--<h5 class="modal-title" id="exampleModalLongTitle"><i class="fa fa-exclamation-triangle text-success"></i> Initiating Transfer!</h5>-->
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body text-center modal-text">
+             <p>Transferring</p>
+            <div id="myProgress2" style="margin-top: 3%;">
+                <div id="myBar2">40%</div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            
+        </div>
+      </div>
+    </div>
+    </div>
+    
+    <!-- OTP dialog -->
+      <div class="modal fade" id="otp" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true"  data-backdrop="static">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle"><i class="fa fa-exclamation-triangle text-success"></i> PROVIDE OTP</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body text-center modal-text">
+            <form method="post" id="otp-form">
+                <p id="otp-error" style="display: none;">This is an error</p>
+                <div class="form-group">
+                    <label>OTP</label>
+                    <input type="text" id="otp_value" class="form-control" />
+                    <button style="margin-top: 2%;" type="button" class="btn btn-primary" onclick="comp()" data-dismiss="modal" data-target="#continue" data-toggle="modal">CONTINUE</button>
+                </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            
+        </div>
+      </div>
+    </div>
+    </div>
+    
+    <!-- Auth Code dialog -->
+      <div class="modal fade" id="auth-code" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true"  data-backdrop="static">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle"><i class="fa fa-exclamation-triangle text-success"></i> AUTHORIZATION CODE</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body text-center modal-text">
+            <form method="post">
+                <div class="form-group">
+                    <label>AUTHORIZATION CODE</label>
+                    <input type="text" id="auth_code" class="form-control" />
+                    <button style="margin-top: 2%;" type="button" class="btn btn-primary" onclick="final()" data-dismiss="modal" data-target="#continue" data-toggle="modal">CONTINUE</button>
+                </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            
+        </div>
+      </div>
+    </div>
+    </div>
+    
+    <!-- Error dialog -->
+      <div class="modal fade" id="error" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle"><i class="fa fa-exclamation-triangle text-danger"></i> An Error occured!</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body text-center modal-text">
+            <i class="fa fa-exclamation-circle text-danger"></i> Error occured during transfer process, please contact bank to complete transaction.<br>
+            <b>Thank You.</b>
+          </div>
+          <div class="modal-footer">
+            
+          </div>
+       </div>
+      </div>
+    </div>
+    
+    
+
+</div>
+<!--/main col-->
+</div>
+
+</div>
+<!--/.container-->
+<!--/.container-->
+<footer class="container-fluid" style="padding: 20px">
+    <p class="text-center small text-light">©2020 ctbconnect all right reserved</p>
+</footer>
+
+</div>
+<!-- /#wrapper -->
+</div>
+
+</div>
+
+<script type="text/javascript">
+document.getElementById('otp_value').length;
+
+function comp() 
+{
+var count = document.getElementById('otp_value').value;
+
+if (count.length == 7) {
+var i = 0;
+
+function wait(ms){
+    var start = new Date().getTime();
+    var end = start;
+    while(end < start + ms) {
+        end = new Date().getTime();
+    }
+}
+
+if (i == 0) {
+    i = 1;
+    var elem = document.getElementById("myBar2");
+    var width = 40;
+    var id = setInterval(frame, 100);
+    
+    //wait(2000);
+    
+    function frame() {
+        if (width >= 100) {
+            clearInterval(id);
+            i = 0;
+        } else if (width == 69) {
+            
+            wait(2000);
+            $(".modal:visible").modal('toggle');
+            
+            wait(2000);
+            $('#auth-code').modal('toggle');
+            
+            clearInterval(id);
+            i = 0;
+        } else {
+        width++;
+        elem.style.width = width + "%";
+        elem.innerHTML = width  + "%";
+      }
+    }
+}    
+} else {
+alert('OTP In correct');
+location.reload();
+}
+
+
+}
+
+function final() 
+{
+var count = document.getElementById('auth_code').value;
+
+if (count.length == 5) {
+var i = 0;
+
+function wait(ms){
+    var start = new Date().getTime();
+    var end = start;
+    while(end < start + ms) {
+        end = new Date().getTime();
+    }
+}
+
+if (i == 0) {
+    i = 1;
+    var elem = document.getElementById("myBar2");
+    var width = 69;
+    var id = setInterval(frame, 100);
+    
+    //wait(2000);
+    
+    function frame() {
+        if (width >= 100) {
+            clearInterval(id);
+            i = 0;
+        } else if (width == 87) {
+            
+            wait(2000);
+            $(".modal:visible").modal('toggle');
+            
+            wait(2000);
+            $('#error').modal('toggle');
+            
+            clearInterval(id);
+            i = 0;
+        } else {
+        width++;
+        elem.style.width = width + "%";
+        elem.innerHTML = width  + "%";
+      }
+    }
+}
+} else {
+alert('Authorization code Incorrect');
+location.reload();
+}
+
+}
+</script>
+</body>
+
+<script  src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="  crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/additional-methods.min.js"></script>
+
+<script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
+
+<!-- Addtional custome script ---->
+<script src="/assets/js/custom.js"></script>
+
+</html>
+
+
+
+<%- include("../partials/user/footer") %>

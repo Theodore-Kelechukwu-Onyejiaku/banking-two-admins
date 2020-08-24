@@ -1,0 +1,338 @@
+/** * @description Produc selector styles */
+/** * Theme reset * * Some theme does not contain this so lets set it here */
+body {
+    position: relative;
+}
+.selector-title {
+    font-weight: 900;
+    margin-bottom: 40px;
+}
+.selector-description {
+    margin-bottom: 30px;
+}
+.selectors ul {
+    margin: 0 !important;
+    list-style-type: none;
+}
+.questionnaire-indicator li:before{
+    content: "";
+    position: absolute;
+    width: 50%;
+    background: #1d5ba4;
+    height: 4px;
+    top: 12px;
+    z-index: -1;
+    left: 0 
+}
+.questionnaire-indicator li:after {
+    content: "";
+    position: absolute;
+    width: 50%;
+    background: #1d5ba4;
+    height: 4px;
+    top: 12px;
+    right: 0;
+    z-index: -1;
+}
+.questionnaire-indicator li {
+    z-index: 9;
+    position: relative;
+    display: inline-block;
+    padding: 0;
+}
+.questionnaire-indicator li:first-child {
+    padding-left: 0;
+}
+.questionnaire-indicator li:last-child {
+    width: 0 !important;
+}
+.questionnaire-indicator li a {
+    cursor: inherit;
+    display: block;
+    margin-left: -4px;
+    text-decoration: none;
+    border-bottom: 0;
+    width: 16px;
+}
+.questionnaire-indicator .dot {
+    content: "";
+    padding: 4px;
+    background-color: #1d5ba4;
+    border: 10px solid #1d5ba4;
+    width: 16px;
+    height: 16px;
+    display: block;
+    border-radius: 10rem;
+    -moz-border-radius: 10rem;
+    -webkit-border-radius: 10rem;
+}
+:root {
+    --borderWidth: 7px;
+    --height: 24px;
+    --width: 12px;
+    --borderColor: #78b13f;
+}
+.dot i{
+    display: none;
+    transform: rotate(45deg);
+    height: 16px;
+    width: 10px;
+    border-bottom: 4px solid #fff;
+    border-right: 5px solid #fff;
+    position: absolute;
+    top: 4px;
+    left: 5px;
+    right: 0;
+}
+.dot i.show, .questionnaire-indicator li:first-child .dot i{
+    display: block;
+}
+.products {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+.products .error {
+    text-align: center;
+}
+.products .product-title{
+    margin-bottom: 20px;
+}
+.products .product-item {
+    text-align: center;
+    color: #333333;
+    float: left;
+    padding: 15px;
+    width: 33.33333333%;
+    margin-bottom: 40px;
+}
+.products .product-item img{
+    display: inline-block;
+    margin: 0;
+}
+.product-item-percentage{
+    font-weight: 900;
+    font-size: 20px;
+}
+.product-link{
+    padding: 12px 20px 12px 20px;
+    background-color: #24a250;
+    color: #fff;
+    border-radius: 3px;
+    text-decoration: none!important;
+}
+.product-title a{
+    text-decoration: none!important;
+}
+.product-excerpt{
+    color: #969696;
+    font-size: 14px;
+}
+.result-message{
+    text-align: center;
+    margin-top: 40px;
+}
+.product-title a{
+    color: #333;
+}
+.products:after {
+    display: table;
+    content: " ";
+    clear: both;
+}
+.questionnaire-item .questionnaire-title {
+    color: #404040;
+    font-size: 18px;
+    font-weight: 900;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+.questionnaire .tab-title, .questionnaire .tab-content {
+    margin: 0px;
+    list-style: none;
+}
+.questionnaire .tab-content {
+    color: #969696;
+}
+.questionnaire .tab-content li {
+    display: none;
+}
+.questionnaire .tab-content li.active {
+    display: block;
+}
+.questionnaire .tab-content span label {
+    margin-right: 6px;
+    margin-bottom: 6px;
+    padding: 12px 20px 12px;
+    background-color: #24a250;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 900;
+    color: #fff;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    cursor: pointer;
+    display: inline-block;
+}
+.questionnaire .tab-content span label.active, .questionnaire .tab-content span label:hover {
+    background-color: #999;
+}
+.questionnaire .tab-content input[type="radio"] {
+    visibility: hidden;
+    position: absolute;
+}
+#questionnaire-item__btn {
+    display: none;
+}
+.product-selector-bottom-links{
+    margin-top: 40px;
+}
+.product-selector-bottom-links a, .questionnaire-item__btn{
+    font-weight: 900;
+    text-decoration: underline;
+    color: #333;
+}
+.questionnaire-item__btn{
+    display: block;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+/* Grid */
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+   }
+}
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+   }
+}
+@media (min-width: 1200px) {
+    .container {
+        width: 970px;
+   }
+}
+.container-fluid {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.row {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+.col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+@media (min-width: 992px) {
+    .col-md-12 {
+        float: left;
+   }
+    .col-md-12 {
+        width: 100%;
+   }
+}
+#close_product_selector{
+    float: right;
+    font-weight: 700;
+    text-decoration: underline;
+    color: #333;
+}
+.product-selector-fade,.selectors{
+    font-family: 'Roboto';
+}
+/* Animation */
+.product-selector-modal {
+    z-index: 999999;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding-top: 40px;
+    background-color: #fff;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+    outline: 0;
+    display: none;
+    z-index: 9999;
+}
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+@-webkit-keyframes fadeInDown {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+   }
+    to {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+   }
+}
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+   }
+    to {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+   }
+}
+.fadeInDown {
+    -webkit-animation-name: fadeInDown;
+    animation-name: fadeInDown;
+}
+@-webkit-keyframes fadeOutUp {
+    from {
+        opacity: 1;
+   }
+    to {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+   }
+}
+@keyframes fadeOutUp {
+    from {
+        opacity: 1;
+   }
+    to {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+   }
+}
+.fadeOutUp {
+    -webkit-animation-name: fadeOutUp;
+    animation-name: fadeOutUp;
+}
+@media only screen and (max-width: 979px) {
+    .questionnaire-indicator {
+        display: none;
+    }
+}
+@media only screen and (max-width: 767px) {
+    .products .product-item{
+        width: 100%;
+    }
+}

@@ -1,0 +1,92 @@
+<%- include("../partials/admin/header") %>
+<!--/col-->
+
+				        <div class="col main pt-5 mt-3 bg-light">
+				            <div class="title">
+				            	<h4 class="display-5 d-sm-block"> 
+				            		DASHBOARD....
+				            		&nbsp; <span>WELCOME
+				            		&nbsp; <%= admin.username%></span>
+				            		TO Citizens Trust Bank
+				            	</h4>
+				            </div>
+				            <p class="lead d-sm-block">Welcome to Citizens Trust Bank Personal Banking Platform for convenient Online Banking anytime anywhere.</p>
+
+				            <!-- dashboard boxes starts -->
+				            <div class="row mb-3">
+				                <div class="col-xl-3 col-sm-6 py-2">
+				                    <div class="card theme-color text-white h-100">
+				                        <div class="card-body theme-color">
+				                            <div class="rotate">
+				                                <i class="fa fa-user fa-4x"></i>
+				                            </div>
+				                            <h6 class="text-uppercase font-italic">Admin Name</h6>
+				                            <h2 class="display-6"> <%= admin.username%></h2>
+				                        </div>
+				                    </div>
+				                </div>
+				                <div class="col-xl-3 col-sm-6 py-2">
+				                    <div class="card text-white theme-color h-100">
+				                        <div class="card-body theme-color">
+				                            <div class="rotate">
+				                                <i class="fa fa-users fa-4x"></i>
+				                            </div>
+				                            <h6 class="text-uppercase font-italic">NO of Users</h6>
+				                            <h2 class="display-6"><%= data %></h2>
+				                        </div>
+				                    </div>
+				                </div>
+				                <div class="col-xl-3 col-sm-6 py-2">
+				                    <div class="card text-white box-theme-2 h-100">
+				                        <div class="card-body box-theme-2">
+				                            <div class="rotate">
+				                                <i class="fa fa-clock-o fa-4x"></i>
+				                            </div>
+				                            <h6 class="text-uppercase">Login Time</h6>
+				                            <h2 class="display-6 pt-3"><%= time %>			                        </div>
+				                    </div>
+				                </div>
+<!--				                <div class="col-xl-3 col-sm-6 py-2">-->
+<!--				                    <div class="card text-white box-theme-2 h-100">-->
+<!--				                        <div class="card-body box-theme-2">-->
+<!--				                            <div class="rotate">-->
+<!--				                                <i class="fa fa-clock fa-4x"></i>-->
+<!--				                            </div>-->
+<!--				                            <h6 class="text-uppercase">Routing Number</h6>-->
+<!--				                            <h2 class="display-6">-- '' //$detail->routing_number <!--</h2>-->
+<!--				                        </div>-->
+<!--				                    </div>-->
+<!--				                </div>-->
+<!--				                <div class="col-xl-3 col-sm-6 py-2">-->
+<!--				                    <div class="card text-white box-theme-3 h-100">-->
+<!--				                        <div class="card-body box-theme-3">-->
+<!--				                            <div class="rotate">-->
+<!--				                                <i class="fa fa-share fa-4x"></i>-->
+<!--				                            </div>-->
+<!--				                            <h6 class="text-uppercase">Account User ID</h6>-->
+<!--				                            <h2 class="display-6">---</h2>-->
+<!--				                        </div>-->
+<!--				                    </div>-->
+<!--				                </div>-->
+<!--				                <div class="col-xl-3 col-sm-6 py-2">-->
+<!--				                    <div class="card text-white box-theme-3 h-100">-->
+<!--				                        <div class="card-body box-theme-3">-->
+<!--				                            <div class="rotate">-->
+<!--				                                <i class="fa fa-share fa-4x"></i>-->
+<!--				                            </div>-->
+<!--				                            <h6 class="text-uppercase">Account Type</h6>-->
+<!--				                            <h2 class="display-6">----</h2>-->
+<!--				                        </div>-->
+<!--				                    </div>-->
+<!--				                </div>-->
+				            </div>
+				         
+				            <!--/row-->
+
+				        </div>
+        			<!--/main col-->
+    				</div>
+
+				</div>
+
+<%- include("../partials/admin/footer") %>

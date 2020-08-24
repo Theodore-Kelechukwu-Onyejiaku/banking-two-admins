@@ -1,0 +1,56 @@
+<%- include("../partials/admin/header") %>
+
+
+<!--/col-->
+
+<div class="col main pt-5 mt-3 bg-light">
+    <div class="title">
+        <h4 class="display-5 d-sm-block"> 
+            MY PROFILE <i class="fa fa-user-plus"></i>
+            <span class="text-success">
+              <% var message %>
+              <%= message %>
+            </span>
+        </h4>
+    </div>
+
+    <!-- add user form -->
+    <div class="container user-form pt-4 mt-5 mb-5">
+
+        
+        <form class="addUser" action="/admin/update-profile" method="post">
+          <input type="hidden" name="_id" value="<%= data._id %>">
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <label for="username">Username</label>
+              <input type="text" name="username" class="form-control" id="username" placeholder="Username"
+              value="<%= data.username %>" required>
+            </div>
+            <div class="form-group col-md-4">
+              <label for="firstname">First Name</label>
+              <input type="text" class="form-control" name="firstname" id="first_name" placeholder="First Name" value="<%= data.firstname %>" required>
+            </div>
+              <div class="form-group col-md-4">
+                  <label for="lastname">Last Name</label>
+                  <input type="text" class="form-control" name="lastname" id="last_name" placeholder="Last Name" value="<%= data.lastname %>" required>
+              </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="email">Email</label>
+                <input type="email" name="email" class="form-control" id="email" required placeholder="Email" value="<%= data.email %>">
+            </div>
+<!--								    <div class="form-group col-md-4">-->
+
+          </div>
+          <button type="submit" class="btn btn-primary">Update Profile</button>
+        </form>
+    </div>
+
+</div>
+<!--/main col-->
+</div>
+
+</div>
+    
+<%- include("../partials/admin/footer") %>

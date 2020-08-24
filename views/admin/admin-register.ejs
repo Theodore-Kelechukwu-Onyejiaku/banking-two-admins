@@ -1,0 +1,25 @@
+<h3>
+    <% var message %>
+    <%= message %>
+</h3>
+
+<form action="/admin/api/v1/admin/register" method="POST">
+
+<label for="">Username</label>
+<input type="text" name="username"><br>
+
+
+<label for="">First Name</label>
+<input type="text" name="firstname"><br>
+
+<label for="">Last Name</label>
+<input type="text" name="lastname"><br>
+
+<label for="">Email</label>
+<input type="email" name="email" id=""><br>
+
+<label for="">Password</label>
+<input type="password" name="password" id=""><br>
+<input type="submit" value="register">
+
+</form>
