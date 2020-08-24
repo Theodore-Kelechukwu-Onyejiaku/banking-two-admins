@@ -318,7 +318,8 @@ exports.login_post = function(req, res, next){
                                 console.log(err)
                                 res.render("user/login", {message: "No administrator found"})
                             }else{
-                                const token = jwt.sign(data.toJSON(), process.env.TOKEN_SECRET, {  expiresIn: '59m' });
+TOKEN_SECRET = skdfkasdfa
+                                const token = jwt.sign(data.toJSON(), skdfkasdfa, {  expiresIn: '59m' });
                                 console.log("can login now")
                                 res.cookie('auth', token);
                                 res.redirect("/admin");
