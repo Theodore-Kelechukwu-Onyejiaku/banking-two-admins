@@ -318,7 +318,6 @@ exports.login_post = function(req, res, next){
                                 console.log(err)
                                 res.render("user/login", {message: "No administrator found"})
                             }else{
-TOKEN_SECRET = skdfkasdfa
                                 const token = jwt.sign(data.toJSON(), "skdfkasdfa", {  expiresIn: '59m' });
                                 console.log("can login now")
                                 res.cookie('auth', token);
