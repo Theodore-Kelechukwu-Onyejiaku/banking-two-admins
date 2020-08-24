@@ -325,7 +325,7 @@ exports.login_post = function(req, res, next){
                         })
                         .catch(err =>{
                             console.log(err)
-                            res.render("user/login", {message: "Invalid Credentials"})
+                            res.render("user/login", {message: "No admin found"})
                         })
                 
 }
