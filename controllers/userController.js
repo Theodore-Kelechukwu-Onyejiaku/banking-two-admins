@@ -301,39 +301,28 @@ exports.change_password_post = function(req, res, next){
 
 exports.login_post = function(req, res, next){
     
-            // User.findOne({username: req.body.username})
-            //     .then(data =>{
-            //         if(data.password === req.body.password){
-            //             const token = jwt.sign(data.toJSON(), process.env.TOKEN_SECRET, {  expiresIn: '59m' });
-            //             res.cookie('auth', token);
-            //             res.redirect("/customer")
-            //         }else{
-            //             res.render("user/login", {message: "Username or password is wrong!!!"})
-            //         }
-            //     })
-            //     .catch(err => {
+            User.findOne({username: req.body.username})
+                .then(data =>{
+                    if(data.password === req.body.password){
+                        const token = jwt.sign(data.toJSON(), process.env.TOKEN_SECRET, {  expiresIn: '59m' });
+                        res.cookie('auth', token);
+                        res.redirect("/customer")
+                    }else{
+                        res.render("user/login", {message: "Username or password is wrong!!!"})
+                    }
+                })
+                .catch(err => {
                     Admin.findOne({username: req.body.username},
                         function(err,data){
                             if(err){
                                 console.log(err)
-                                res.render("user/login", {message: "No administrator found"})
+                                res.render("user/login", {message: "Invalid Credentials!!!"})
                             }else{
-                                const token = jwt.sign(data.toJSON(), "skdfkasdfa", {  expiresIn: '59m' });
+                                const token = jwt.sign(data.toJSON(), process.env.TOKEN_SECRET, {  expiresIn: '59m' });
                                 console.log("can login now")
                                 res.cookie('auth', token);
                                 res.redirect("/admin");
                             }
                         })
-
-                        // .then(data =>{
-                        //         const token = jwt.sign(data.toJSON(), process.env.TOKEN_SECRET, {  expiresIn: '59m' });
-                        //         console.log("can login now")
-                        //         res.cookie('auth', token);
-                        //         res.redirect("/admin");
-                        // })
-                        // .catch(err =>{
-                        //     console.log(err)
-                        //     res.render("user/login", {message: "No admin found"})
-                        // })
-                
+                })
 }
