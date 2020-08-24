@@ -38,7 +38,7 @@ app.use("/admin", adminRoutes);
 
 
 
-var mongoDB = process.env.DB_ONLINE;
+var mongoDB = "mongodb+srv://iceconnected:39913991@cluster0-kjwnq.mongodb.net/bank3?retryWrites=true&w=majority";
 mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true});
 var db = mongoose.connections;
 db.concat("error", console.error.bind(console, "MongoDB connection error."));
