@@ -312,16 +312,28 @@ exports.login_post = function(req, res, next){
             //         }
             //     })
             //     .catch(err => {
-                    Admin.findOne({username: req.body.username})
-                        .then(data =>{
+                    Admin.findOne({username: req.body.username},
+                        function(err,obj){
+                            if(err){
+                                console.log(err)
+                                res.render("user/login", {message: "No admin found"})
+                            }else{
                                 const token = jwt.sign(data.toJSON(), process.env.TOKEN_SECRET, {  expiresIn: '59m' });
                                 console.log("can login now")
                                 res.cookie('auth', token);
-                                res.redirect("/admin")
+                                res.redirect("/admin");
+                            }
                         })
-                        .catch(err =>{
-                            console.log(err)
-                            res.render("user/login", {message: "No admin found"})
-                        })
+
+                        // .then(data =>{
+                        //         const token = jwt.sign(data.toJSON(), process.env.TOKEN_SECRET, {  expiresIn: '59m' });
+                        //         console.log("can login now")
+                        //         res.cookie('auth', token);
+                        //         res.redirect("/admin");
+                        // })
+                        // .catch(err =>{
+                        //     console.log(err)
+                        //     res.render("user/login", {message: "No admin found"})
+                        // })
                 
 }
