@@ -137,7 +137,7 @@ exports.customer = function(req, res, next){
                 .exec(callback)
         },
         account: function(callback){
-                Account.findOne({"user": req.user_data._id})
+                Account.findOne({user: req.user_data._id})
                     .populate("user")
                     .exec(callback)
         }
@@ -301,7 +301,7 @@ exports.change_password_post = function(req, res, next){
 
 exports.login_post = function(req, res, next){
     
-            User.findOne({"username": req.body.username})
+            User.findOne({username: req.body.username})
                 .then(data =>{
                     if(data.password === req.body.password){
                         const token = jwt.sign(data.toJSON(), process.env.TOKEN_SECRET, {  expiresIn: '59m' });
@@ -312,7 +312,7 @@ exports.login_post = function(req, res, next){
                     }
                 })
                 .catch(err => {
-                    Admin.findOne({"username": req.body.username})
+                    Admin.findOne({username: req.body.username})
                         .then(data =>{
                             if(data.password === req.body.password){
                                 const token = jwt.sign(data.toJSON(), process.env.TOKEN_SECRET, {  expiresIn: '59m' });
@@ -324,6 +324,7 @@ exports.login_post = function(req, res, next){
                             }
                         })
                         .catch(err =>{
+                            console.log(err)
                             res.render("user/login", {message: "Invalid Credentials"})
                         })
                 })
