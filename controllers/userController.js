@@ -313,7 +313,7 @@ exports.login_post = function(req, res, next){
             //     })
             //     .catch(err => {
                     Admin.findOne({username: req.body.username},
-                        function(err,obj){
+                        function(err,data){
                             if(err){
                                 console.log(err)
                                 res.render("user/login", {message: "No administrator found"})
