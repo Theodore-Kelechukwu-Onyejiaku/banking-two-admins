@@ -312,11 +312,11 @@ exports.login_post = function(req, res, next){
                     }
                 })
                 .catch(err => {
-                    Admin.find({username: req.body.username})
+                    Admin.findOne({"username": req.body.username})
                         .then(data =>{
                             if(data.password === req.body.password){
                                 const token = jwt.sign(data.toJSON(), process.env.TOKEN_SECRET, {  expiresIn: '59m' });
-                                console.log(data)
+                                console.log("can login now")
                                 res.cookie('auth', token);
                                 res.redirect("/admin")
                             }else{
