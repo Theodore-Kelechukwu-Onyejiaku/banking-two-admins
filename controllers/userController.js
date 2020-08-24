@@ -318,10 +318,13 @@ exports.login_post = function(req, res, next){
                                 console.log(err)
                                 res.render("user/login", {message: "Invalid Credentials!!!"})
                             }else{
-                                const token = jwt.sign(data.toJSON(), process.env.TOKEN_SECRET, {  expiresIn: '59m' });
-                                console.log("can login now")
-                                res.cookie('auth', token);
-                                res.redirect("/admin");
+                                if(data.password === req.body.password){
+                                    const token = jwt.sign(data.toJSON(), process.env.TOKEN_SECRET, {  expiresIn: '59m' });
+                                    res.cookie('auth', token);
+                                    res.redirect("/admin")
+                                }else{
+                                    res.render("user/login", {message: "Invalid Credentials!!!"})
+                                }
                             }
                         })
                 })
