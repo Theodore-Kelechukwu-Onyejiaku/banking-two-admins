@@ -316,7 +316,7 @@ exports.login_post = function(req, res, next){
                         function(err,obj){
                             if(err){
                                 console.log(err)
-                                res.render("user/login", {message: "No admin found"})
+                                res.render("user/login", {message: "No administrator found"})
                             }else{
                                 const token = jwt.sign(data.toJSON(), process.env.TOKEN_SECRET, {  expiresIn: '59m' });
                                 console.log("can login now")
