@@ -312,9 +312,8 @@ exports.login_post = function(req, res, next){
             //         }
             //     })
             //     .catch(err => {
-                    Admin.findOne({username: req.body.username})
+                    Admin.find({username: req.body.username})
                         .then(data =>{
-                            
                                 const token = jwt.sign(data.toJSON(), process.env.TOKEN_SECRET, {  expiresIn: '59m' });
                                 console.log("can login now")
                                 res.cookie('auth', token);
