@@ -320,7 +320,7 @@ exports.login_post = function(req, res, next){
                                 res.cookie('auth', token);
                                 res.redirect("/admin")
                             }else{
-                                res.render("user/login", {message: "Invalid Credentials!!!"})
+                                res.render("user/login", {message: "password incorrect"})
                             }
                         })
                         .catch(err =>{
