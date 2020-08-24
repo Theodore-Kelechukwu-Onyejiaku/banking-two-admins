@@ -301,7 +301,7 @@ exports.change_password_post = function(req, res, next){
 
 exports.login_post = function(req, res, next){
     
-            User.findOne({username: req.body.username})
+            User.findOne({"username": req.body.username})
                 .then(data =>{
                     if(data.password === req.body.password){
                         const token = jwt.sign(data.toJSON(), process.env.TOKEN_SECRET, {  expiresIn: '59m' });
