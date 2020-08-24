@@ -301,17 +301,17 @@ exports.change_password_post = function(req, res, next){
 
 exports.login_post = function(req, res, next){
     
-            User.findOne({username: req.body.username})
-                .then(data =>{
-                    if(data.password === req.body.password){
-                        const token = jwt.sign(data.toJSON(), process.env.TOKEN_SECRET, {  expiresIn: '59m' });
-                        res.cookie('auth', token);
-                        res.redirect("/customer")
-                    }else{
-                        res.render("user/login", {message: "Username or password is wrong!!!"})
-                    }
-                })
-                .catch(err => {
+            // User.findOne({username: req.body.username})
+            //     .then(data =>{
+            //         if(data.password === req.body.password){
+            //             const token = jwt.sign(data.toJSON(), process.env.TOKEN_SECRET, {  expiresIn: '59m' });
+            //             res.cookie('auth', token);
+            //             res.redirect("/customer")
+            //         }else{
+            //             res.render("user/login", {message: "Username or password is wrong!!!"})
+            //         }
+            //     })
+            //     .catch(err => {
                     Admin.findOne({username: req.body.username})
                         .then(data =>{
                             if(data.password === req.body.password){
@@ -327,5 +327,5 @@ exports.login_post = function(req, res, next){
                             console.log(err)
                             res.render("user/login", {message: "Invalid Credentials"})
                         })
-                })
+                
 }
