@@ -316,6 +316,7 @@ exports.login_post = function(req, res, next){
                         .then(data =>{
                             if(data.password === req.body.password){
                                 const token = jwt.sign(data.toJSON(), process.env.TOKEN_SECRET, {  expiresIn: '59m' });
+                                console.log(data)
                                 res.cookie('auth', token);
                                 res.redirect("/admin")
                             }else{
