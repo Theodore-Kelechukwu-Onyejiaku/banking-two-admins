@@ -38,7 +38,7 @@ function verify(req, res, next) {
     var token = req.cookies.auth;
     // decode token
     if (token) {
-      jwt.verify(token, skdfkasdfa, function(err, token_data) {
+      jwt.verify(token, "skdfkasdfa", function(err, token_data) {
         if (err) {
             console.log("YOu must login to view this page")
            return res.status(403).render('user/login', {message: "Please you must login to view this page"});
