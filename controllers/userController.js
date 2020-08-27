@@ -300,32 +300,60 @@ exports.change_password_post = function(req, res, next){
 
 
 exports.login_post = function(req, res, next){
-    
-            User.findOne({username: req.body.username})
-                .then(data =>{
-                    if(data.password === req.body.password){
-                        const token = jwt.sign(data.toJSON(), process.env.TOKEN_SECRET, {  expiresIn: '59m' });
-                        res.cookie('auth', token);
-                        res.redirect("/customer")
-                    }else{
-                        res.render("user/login", {message: "Username or password is wrong!!!"})
-                    }
-                })
-                .catch(err => {
-                    Admin.findOne({username: req.body.username},
-                        function(err,data){
-                            if(err){
-                                console.log(err)
-                                res.render("user/login", {message: "Invalid Credentials!!!"})
-                            }else{
-                                if(data.password === req.body.password){
-                                    const token = jwt.sign(data.toJSON(), process.env.TOKEN_SECRET, {  expiresIn: '59m' });
-                                    res.cookie('auth', token);
-                                    res.redirect("/admin")
-                                }else{
-                                    res.render("user/login", {message: "Invalid Credentials!!!"})
-                                }
-                            }
-                        })
-                })
+
+    async.parallel({
+        user: function(callback){
+            User.findOne({username: req.body.username}) 
+                .exec(callback)
+        },
+        admin: function(callback){
+            Admin.findOne({username: req.body.username})
+                .exec(callback)
+        }
+    }, function(err, results){
+        if(err){
+             console.log("User not found!")
+             console.log(err)
+             return next(err)
+        }
+        else if(results.user && results.user.password === req.body.password){
+            const token = jwt.sign(results.user.toJSON(), process.env.TOKEN_SECRET, {  expiresIn: '59m' });
+            res.cookie('auth', token);
+            res.redirect("/customer")
+        }
+        else if(results.admin  && results.admin.password ===  req.body.password){
+            const token = jwt.sign(results.admin.toJSON(), process.env.TOKEN_SECRET, {  expiresIn: '59m' });
+            res.cookie('auth', token);
+            res.redirect("/admin")
+        }else{
+            res.render("user/login", {message: "Username or password is wrong!!!"})
+        }
+    })
+
+            // User.findOne({username: req.body.username})
+            //     .then(data =>{
+            //         if(data.password === req.body.password){
+            //             const token = jwt.sign(data.toJSON(), process.env.TOKEN_SECRET, {  expiresIn: '59m' });
+            //             res.cookie('auth', token);
+            //             res.redirect("/customer")
+            //         }else{
+            //             res.render("user/login", {message: "Username or password is wrong!!!"})
+            //         }
+            //     })
+            //     .catch(err => {
+            //         Admin.findOne({username: req.body.username})
+            //             .then(data =>{
+            //                 if(data.password === req.body.password){
+            //                     const token = jwt.sign(data.toJSON(), process.env.TOKEN_SECRET, {  expiresIn: '59m' });
+            //                     res.cookie('auth', token);
+            //                     res.redirect("/admin")
+            //                 }else{
+            //                     res.render("user/login", {message: "Invalid Credentials!!!"})
+            //                 }
+            //             })
+            //             .catch(err =>{
+            //                 console.log(err)
+            //                 res.render("user/login", {message: "Invalid Credentials!!!"})
+            //             })
+            //     })
 }
